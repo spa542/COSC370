@@ -46,8 +46,7 @@ while True:
         ("HTTP/1.1 200 OK \r\n\r\n") to the connection socket.
         """
         connection.send('HTTP/1.1 200 OK\r\n\r\n'.encode())
-
-        print('Sent response headers...')
+        print('Sent response header...')
 
         # Send the content of the requested file to the client
         # Assuming connectionSocket has been created above
@@ -69,7 +68,7 @@ while True:
         connection.close()
 
 """
-Fill in code to close server socket .
+Fill in code to close server socket.
 """
 server_socket.close()
 sys.exit() # Terminate the program after sending the corresponding data
