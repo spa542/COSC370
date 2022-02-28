@@ -8,7 +8,8 @@ bind the socket to server address and server port,
 and listen to at most one connection at a time.
 """
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind(('127.0.0.1', 6666))
+port = 6789
+server_socket.bind(("localhost", port))
 server_socket.listen(1)
 
 # Server should be up and running listening to the incoming connections
@@ -26,8 +27,8 @@ while True:
         """
         Fill in code to receive a request message from the client.
         """
-        data = connection.recv(6666).decode()
-        print('Received data from port 6666...');
+        data = connection.recv(2048).decode()
+        print(f'Received data from port {port}...');
 
         # Extract the path ( which is the second part of HTTP header)
         # of the requested object from the message .
