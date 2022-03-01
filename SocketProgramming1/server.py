@@ -9,7 +9,7 @@ and listen to at most one connection at a time.
 """
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 port = 6789
-server_socket.bind(("localhost", port))
+server_socket.bind(('localhost', port))
 server_socket.listen(1)
 
 # Server should be up and running listening to the incoming connections
@@ -46,7 +46,7 @@ while True:
         Fill in code to send the the HTTP response header line
         ("HTTP/1.1 200 OK \r\n\r\n") to the connection socket.
         """
-        connection.send('HTTP/1.1 200 OK\r\n\r\n'.encode())
+        connection.send('HTTP/1.1 200 OK\nContent-Type: text/html\n\n'.encode())
         print('Sent response header...')
 
         # Send the content of the requested file to the client
@@ -65,7 +65,7 @@ while True:
         and send 404 Not Found as HTML body.
         Fill in code to close client connection socket.
         """
-        connection.send('HTTP/1.1 404 Not Found \r\n\r\n'.encode())
+        connection.send('HTTP/1.1 404 Not Found\nContent-Type: text/html\n\n<html><body><h1>404 Not Found</body></html>'.encode())
         connection.close()
 
 """
