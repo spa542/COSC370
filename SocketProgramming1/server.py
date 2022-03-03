@@ -9,7 +9,7 @@ and listen to at most one connection at a time.
 """
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 port = 6789
-server_socket.bind(('localhost', port))
+server_socket.bind(("", port))
 server_socket.listen(1)
 
 # Server should be up and running listening to the incoming connections
